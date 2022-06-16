@@ -1,66 +1,58 @@
 // pages/index/index.js
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
-
+        version: null, // 0为求职版，1为招工版
+        jobsList: [],
+        intentionsList: []
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
-
+    async onLoad(options) {
+        this.setData({
+            version: Number(wx.getStorageSync('character'))
+        })
+        //   console.log(this.data.version);
+        wx.setNavigationBarTitle({
+            title: this.data.version ? '招工广场' : '求职广场',
+        })
     },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-
+    async onShow() {
+        if (this.data.version === 0) {
+            const result = await wx.cloud.callContainer({
+                "config": {
+                    "env": "prod-7gnlhvx8047cf6b2"
+                },
+                "path": "/api/jobsList",
+                "header": {
+                    "X-WX-SERVICE": "koa-7mby"
+                },
+                "method": "POST",
+                "data": {
+                    startIndex: 0,
+                    endIndex: 10
+                }
+            })
+            console.log(result.data)
+            this.setData({
+                jobsList: result.data.data
+            })
+        } else {
+            const result = await wx.cloud.callContainer({
+                "config": {
+                    "env": "prod-7gnlhvx8047cf6b2"
+                },
+                "path": "/api/intentionsList",
+                "header": {
+                    "X-WX-SERVICE": "koa-7mby"
+                },
+                "method": "POST",
+                "data": {
+                    startIndex: 0,
+                    endIndex: 10
+                }
+            })
+            console.log(result.data)
+            this.setData({
+                intentionsList: result.data.data
+            })
+        }
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
-    }
 })

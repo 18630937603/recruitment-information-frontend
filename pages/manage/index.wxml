@@ -1,0 +1,21 @@
+<!--pages/manage/index.wxml-->
+<view wx:if="{{!version}}">
+    <view class="title-favourite">我收藏的工作</view>
+    <view class="title-center" wx:if="{{favJobsList.length===0}}">暂未收藏</view>
+    <view wx:for="{{favJobsList}}" wx:key="index">
+        <AvatarCard job="{{item}}" />
+    </view>
+    <view class="title-favourite">我发布的求职意向</view>
+    <view class="title-center" wx:if="{{publishedIntentionsList.length===0}}">暂未发布</view>
+    <view wx:for="{{publishedIntentionsList}}" wx:key="index">
+        <IntentionCard isDeleteType="true" intention="{{item}}" />
+    </view>
+</view>
+
+<view wx:if="{{version}}">
+    <view class="title-favourite">我发布的工作</view>
+    <view class="title-center" wx:if="{{publishedJobsList.length===0}}">暂未发布</view>
+    <view wx:for="{{publishedJobsList}}" wx:key="index">
+        <AvatarCard isDeleteType="true" job="{{item}}" />
+    </view>
+</view>

@@ -1,0 +1,74 @@
+<!--pages/add_new/index.wxml-->
+<mp-form-page wx:if="{{version}}" title="职位发布" subtitle="发布用工信息">
+    <mp-form id="form" rules="{{jobFormRules}}" models="{{jobFormData}}">
+        <mp-cells>
+            <mp-cell prop="jobName" title="职位名称*">
+                <input bindinput="jobFormInputChange" value="{{jobFormData.jobName}}" data-field="jobName" placeholder="请填写职位名称" />
+            </mp-cell>
+            <mp-cell prop="minSalary" title="最低月薪*">
+                <input type="number" bindinput="jobFormInputChange" value="{{jobFormData.minSalary}}" data-field="minSalary" placeholder="最低月薪（￥）" />
+            </mp-cell>
+            <mp-cell prop="maxSalary" title="最高月薪*">
+                <input type="number" bindinput="jobFormInputChange" value="{{jobFormData.maxSalary}}" data-field="maxSalary" placeholder="最高月薪（￥）" />
+            </mp-cell>
+            <mp-cell title="学历要求">
+                <picker bindchange="eduPickerChange" value="{{eduIndex}}" range="{{eduArray}}">
+                    <view class="picker">
+                        {{eduArray[eduIndex]}}
+                    </view>
+                </picker>
+            </mp-cell>
+            <mp-cell prop="companyName" title="公司名称*">
+                <input bindinput="jobFormInputChange" value="{{jobFormData.companyName}}" data-field="companyName" placeholder="请填写公司名称" />
+            </mp-cell>
+            <mp-cell prop="city" title="工作城市*">
+                <input bindinput="jobFormInputChange" value="{{jobFormData.city}}" data-field="city" placeholder="请填写工作城市" />
+            </mp-cell>
+            <mp-cell prop="contact" title="联系电话*">
+                <input bindinput="jobFormInputChange" value="{{jobFormData.contact}}" data-field="contact" placeholder="您的联系电话" />
+            </mp-cell>
+            <mp-cell title="工作地址">
+                <input bindinput="jobFormInputChange" value="{{jobFormData.address}}" data-field="address" placeholder="工作详细地址" />
+            </mp-cell>
+            <mp-cell title="岗位要求">
+                <textarea data-field="jobRequirements" style="width: 100%;" bindinput="jobFormInputChange" auto-height="true" value="{{jobFormData.jobRequirements}}" placeholder="请填写岗位要求"></textarea>
+            </mp-cell>
+            <mp-cell title="岗位简介">
+                <textarea data-field="jobIntroduction" style="width: 100%;" bindinput="jobFormInputChange" auto-height="true" value="{{jobFormData.jobIntroduction}}" placeholder="请填写岗位简介"></textarea>
+            </mp-cell>
+        </mp-cells>
+    </mp-form>
+    <view class="error_msg" wx:if="{{errorMsg}}">{{errorMsg}}</view>
+    <view slot="button">
+        <button class="weui-btn" style="background-color: #242C77;" type="primary" bindtap="submitJobForm">发布</button>
+    </view>
+</mp-form-page>
+
+<mp-form-page wx:if="{{!version}}" title="求职意向发布" subtitle="发布求职意向">
+    <mp-form id="form2" rules="{{intentionFormRules}}" models="{{intentionFormData}}">
+        <mp-cells>
+            <mp-cell prop="preferredJobType" title="期望工作*">
+                <input bindinput="intentionFormInputChange" value="{{intentionFormData.preferredJobType}}" data-field="preferredJobType" placeholder="期望工作的类型" />
+            </mp-cell>
+            <mp-cell prop="salaryExpectation" title="期望月薪*">
+                <input bindinput="intentionFormInputChange" value="{{intentionFormData.salaryExpectation}}" data-field="salaryExpectation" placeholder="期望的月薪范围" />
+            </mp-cell>
+            <mp-cell prop="cityExpectation" title="期望城市*">
+                <input bindinput="intentionFormInputChange" value="{{intentionFormData.cityExpectation}}" data-field="cityExpectation" placeholder="期望工作的城市" />
+            </mp-cell>
+            <mp-cell prop="contact" title="联系电话*">
+                <input bindinput="intentionFormInputChange" value="{{intentionFormData.contact}}" data-field="contact" placeholder="您的联系电话" />
+            </mp-cell>
+            <mp-cell title="其他说明">
+                <textarea data-field="description" style="width: 100%;" bindinput="intentionFormInputChange" auto-height="true" value="{{intentionFormData.description}}" placeholder="个人简介、要求等"></textarea>
+            </mp-cell>
+            <!-- <mp-cell title="附带简历">
+                <switch prop="bindResume" bindchange="bindResumeSwitchChange" class="darkblue"></switch>
+            </mp-cell> -->
+        </mp-cells>
+    </mp-form>
+    <view class="error_msg" wx:if="{{errorMsg}}">{{errorMsg}}</view>
+    <view slot="button">
+        <button class="weui-btn" style="background-color: #242C77;" type="primary" bindtap="submitIntentionForm">发布</button>
+    </view>
+</mp-form-page>

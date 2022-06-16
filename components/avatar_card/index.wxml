@@ -1,0 +1,12 @@
+<view class="avatar_card">
+  <view class="left_side">
+    <text style="font-size: medium;">{{job.jobName}}</text>
+    <text style="color:orange;font-size:medium;">￥{{job.minSalary}}~￥{{job.maxSalary}}</text>
+    <text style="color: gray;">{{job.companyName}}</text>
+  </view>
+  <view class="right_side">
+    <text style="font-size: medium;font-weight: bold;">{{job.city}}|{{job.educationalRequirements}}</text>
+    <button wx:if="{{ !isDeleteType }}" bindtap="gotoDetail" class="button" size="mini" type="primary" plain="true" style="color: #242C77;border-color: #242C77;">详情</button>
+    <button wx:if="{{ isDeleteType }}" bindtap="deleteMyself" class="button" size="mini" type="primary" plain="true" style="color: red;border-color: red;">删除</button>
+  </view>
+</view>

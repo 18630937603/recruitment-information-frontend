@@ -1,0 +1,13 @@
+/* pages/manage/index.wxss */
+.title-favourite {
+    margin: 30rpx 0 20rpx 20rpx;
+    font-size: larger;
+    font-weight: bolder;
+    color: black;
+}
+
+.title-center {
+    text-align: center;
+    font-size: larger;
+    margin: 50rpx 0;
+}

@@ -1,1 +1,4 @@
 /* pages/character_select/character_select.wxss */
+button {
+  margin-top: 200rpx;
+}

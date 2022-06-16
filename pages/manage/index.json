@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "AvatarCard": "/components/avatar_card/index",
+        "IntentionCard": "/components/intention_card/intention_card"
+    }
+}

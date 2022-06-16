@@ -1,2 +1,4 @@
 <!--pages/character_select/character_select.wxml-->
-<text>pages/character_select/character_select.wxml</text>
+<button type="primary" style="color: #242C77;border-color:#242C77;" plain="true" bindtap="jobSeekerTap">我要应聘</button>
+
+<button type="primary" style="color: #242C77;border-color:#242C77;" plain="true" bindtap="recruiterTap">我要招工</button>

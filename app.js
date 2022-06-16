@@ -1,34 +1,37 @@
 // app.js
 App({
   async onLaunch() {
-    // 展示本地存储能力
-    // const logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
+    if(wx.getStorageSync('character')) {
+      wx.switchTab({
+        url: 'pages/index/index',
+      })
+    }
     wx.cloud.init()
-    // 登录
-    wx.login({
-      success: async (res) => {
-        console.log("res.code:",res.code)
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        const result = await wx.cloud.callContainer({
-          "config": {
-            "env": "prod-7gnlhvx8047cf6b2"
-          },
-          "path": "/api/login",
-          "header": {
-            "X-WX-SERVICE": "koa-7mby"
-          },
-          "method": "POST",
-          "data": {
-            code:res.code
-          }
-        })
-        console.log(result)
-      }
+    const result = await wx.cloud.callContainer({
+      "config": {
+        "env": "prod-7gnlhvx8047cf6b2"
+      },
+      "path": "/api/login",
+      "header": {
+        "X-WX-SERVICE": "koa-7mby"
+      },
+      "method": "GET",
     })
+    if(result.data.code===0) {
+        this.globalData.userInfo.nickname = result.data.data.nickname
+        this.globalData.userInfo.avatarURL = result.data.data.avatarURL
+    }
+    console.log(result.data)
+
+    wx.authorize({
+      scope: 'scope.userLocation',
+    })
+
   },
   globalData: {
-    userInfo: null
+    userInfo: {
+        nickname: '',
+        avatarURL: ''
+    },
   }
 })

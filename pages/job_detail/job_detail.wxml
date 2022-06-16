@@ -1,0 +1,45 @@
+<!--pages/job_detail/job_detail.wxml-->
+<header class="header">
+    <div class="title">
+        <text class="job-name">{{jobDetailData.jobName}}</text>
+        <text class="salary">￥{{jobDetailData.minSalary}}~￥{{jobDetailData.maxSalary}}</text>
+    </div>
+    <div class="subtitle">
+        <icon class="cuIcon-location subtitle-icon"></icon>
+        <text class="city">{{jobDetailData.city}}</text>
+        <icon class="cuIcon-selection subtitle-icon"></icon>
+        <text class="edu">{{jobDetailData.educationalRequirements}}</text>
+    </div>
+</header>
+
+<divider />
+
+<div class="recruiter-card">
+    <image class="avatar" src="{{jobDetailData.publisher.avatarURL}}"></image>
+    <div class="card-right">
+        <text class="recruiter-name">{{jobDetailData.publisher.nickname}}</text>
+        <text class="company-name">{{jobDetailData.companyName}}</text>
+    </div>
+</div>
+
+<divider />
+
+<div class="content">
+    <text class="content-title">职位介绍</text>
+    <text>{{ jobDetailData.jobIntroduction ? jobDetailData.jobIntroduction : "暂无" }}</text>
+    <text class="content-title">职位要求</text>
+    <text>{{ jobDetailData.jobRequirements ? jobDetailData.jobRequirements : "暂无" }}</text>
+    <text class="content-title">具体地址</text>
+    <text>{{ jobDetailData.address ? jobDetailData.address : "暂无" }}</text>
+</div>
+
+
+<footer class="footer">
+    <div class="favourite" bindtap="favouriteClick">
+        <icon class="fav-icon {{ jobDetailData.favourite ? 'cuIcon-favorfill' : 'cuIcon-favor'}}"></icon>
+        <text>{{ jobDetailData.favourite ? '取消' : '收藏' }}</text>
+    </div>
+    <div class="contact">
+        <button bindtap="contact" style="background-color:#242C77" type="primary">立即沟通</button>
+    </div>
+</footer>

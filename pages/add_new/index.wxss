@@ -1,0 +1,13 @@
+/* pages/add_new/index.wxss */
+
+.error_msg {
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    color: white;
+    font-size: medium;
+    width: 700rpx;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color:#FA5151;
+}

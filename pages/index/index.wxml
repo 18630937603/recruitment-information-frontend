@@ -1,2 +1,15 @@
 <!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<view class='container'>
+    <view wx:if="{{!version}}">
+        <view class="title_center" wx:if="{{jobsList.length===0}}">暂无在招职位</view>
+        <view wx:for="{{jobsList}}" wx:key="index">
+            <AvatarCard job="{{item}}" />
+        </view>
+    </view>
+    <view wx:if="{{version}}">
+        <view class="title_center" wx:if="{{intentionsList.length===0}}">暂无人求职</view>
+        <view wx:for="{{intentionsList}}" wx:key="index">
+            <IntentionCard intention="{{item}}" />
+        </view>
+    </view>
+</view>

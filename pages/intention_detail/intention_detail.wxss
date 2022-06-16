@@ -1,0 +1,108 @@
+/* pages/intention_detail/intention_detail.wxss */
+
+page {
+    background-color: white;
+}
+
+.title {
+    display: block;
+    position: relative;
+    height: 80rpx;
+}
+
+.job-name {
+    position: absolute;
+    top: 20rpx;
+    left: 25rpx;
+    font-size: large;
+    color: black;
+}
+
+.salary {
+    position: absolute;
+    right: 25rpx;
+    top: 20rpx;
+    color:orange;
+    font-size:medium;
+}
+
+.subtitle {
+    display: block;
+    margin-left: 10rpx;
+}
+
+.subtitle-icon {
+    font-size: larger;
+    margin-left: 10rpx;
+}
+
+.city {
+    vertical-align:-11rpx;
+    margin-left: 10rpx;
+}
+
+.edu {
+    vertical-align:-11rpx;
+    margin-left: 10rpx;
+}
+
+divider {
+    display: block;
+    background: #E0E3DA;
+    opacity: 0.5;
+    width: 80%;
+    margin: 25rpx auto;
+    height: 1px;
+}
+
+.recruiter-card {
+    display: flex;
+}
+
+.avatar {
+    height: 100rpx;
+    width: 100rpx;
+    border-radius: 50rpx;
+    margin:0 30rpx;
+}
+
+.card-right {
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.recruiter-name {
+    font-size: larger;
+    color: black;
+}
+
+.content {
+    display: block;
+    height: 300rpx;
+    width: 680rpx;
+    margin: 0 auto;
+}
+
+.content-title {
+    display: block;
+    font-size: larger;
+    color: black;
+    font-weight: bold;
+    margin: 30rpx 0;
+}
+
+.footer {
+    background: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 120rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.contact {
+    flex: 1;
+}

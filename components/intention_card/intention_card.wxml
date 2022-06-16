@@ -1,0 +1,21 @@
+<!--components/intention_card/intention_card.wxml-->
+<view class="card">
+  <view wx:if="{{!isDeleteType}}" class="left_side">
+    <image class="avatar" src="{{intention.user.avatarURL}}"></image>
+    <text>{{intention.user.nickname}}</text>
+  </view>
+  <view class="right_side">
+    <text class="content" >
+      <text>我希望在</text>
+      <text style="font-weight: bold;">{{' '+intention.cityExpectation+' '}}</text>
+      <text>找一份月薪</text>
+      <text style="font-weight: bolder">{{' '+intention.salaryExpectation+' '}}</text>
+      <text>左右的</text>
+      <text style="font-weight: bold;">{{' '+intention.preferredJobType+' '}}</text>
+      <text>工作</text>
+    </text>
+    <button wx:if="{{!isDeleteType}}" bindtap="gotoDetail" class="button" size="mini" type="primary" plain="true" style="color: #242C77;border-color: #242C77;">详情</button>
+    <button wx:if="{{isDeleteType}}" bindtap="deleteMyself" class="button" size="mini" type="primary" plain="true" style="color: red;border-color: red;">删除</button>
+  </view>
+</view>
+

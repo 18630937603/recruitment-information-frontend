@@ -1,1 +1,57 @@
 /* pages/mine/mine.wxss */
+.UCenter-bg {
+  background-image: url('https://7363-schoolgzgsxy-2g07k3mh30f9fcde-1305126347.tcb.qcloud.la/system/96411614765679_.pic.jpg?sign=8274bb978c7309d852fc3f042a185b84&t=1614861554');
+  background-size: cover;
+  height: 550rpx;
+  display: flex;
+  justify-content: center;
+  padding-top: 40rpx;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.avatar{
+  width: 150rpx !important;
+  height: 150rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 75rpx;
+  background: transparent;
+  margin-bottom: 30rpx;
+} 
+
+.avatar-pic {
+    flex-shrink: 0;
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.nickname-input {
+    background-color: white;
+    border-radius: 15rpx;
+    border-color: teal;
+    color: black;
+}
+
+.character-indicator {
+  margin-top: 30rpx;
+  color: white;
+}
+
+.UCenter-bg .gif-wave {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;
+  height: 100rpx;
+}
+
